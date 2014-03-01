@@ -121,7 +121,7 @@
   
   <target name="set_file_attributes_to_normal">
     <echo level="Warning" message="Removing read only attributes that some source control things put on files in '${dirs.drop.nuget}'." />
-    <attrib normal="true">
+    <attrib normal="true" failonerror="false">
       <fileset basedir="${dirs.drop.nuget}">
         <include name="**/*" />
       </fileset>
