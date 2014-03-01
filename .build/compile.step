@@ -110,10 +110,14 @@
     <echo level="Warning" message="Finding and restoring all packages (${app.nuget} restore '${solution.path}')" />
     <exec program="${app.nuget}"
           workingdir="${dirs.build}"
-          commandline='restore "${solution.path}"' if="${platform::is-windows()}" />
+          commandline='restore "${solution.path}"' 
+          failonerror="false"
+          if="${platform::is-windows()}" />
     <exec program="mono"
           workingdir="${dirs.build}"
-          commandline="'${app.nuget}' restore '${solution.path}'" if="${platform::is-unix()}" />
+          commandline="'${app.nuget}' restore '${solution.path}'" 
+          failonerror="false"
+          if="${platform::is-unix()}" />
   </target>
 
   <target name="build_code" depends="" description="Building Library">

@@ -22,6 +22,7 @@
   <property name="folder.file_server" value="file.server" overwrite="false" />
   <property name="folder.environment_files" value="environment.files" overwrite="false" />
   <property name="folder.deployment" value="deployment" overwrite="false" />
+  <property name="dirs.drop.deployment" value="${dirs.drop}${path.separator}${folder.deployment}" overwrite="false" />
   <property name="folder.settings" value="settings" overwrite="false" />
   <property name="folder.documentation" value="docs" overwrite="false" />
   <property name="file.build_info" value="${dirs.build}${path.separator}_BuildInfo.xml" />
@@ -187,7 +188,7 @@
   
   <target name="set_file_attributes_to_normal">
     <echo level="Warning" message="Removing read only attributes that some source control things put on files in '${dirs.drop}'." />
-    <attrib normal="true">
+    <attrib normal="true" failonerror="false">
       <fileset basedir="${dirs.drop}">
         <include name="**/*" />
       </fileset>
@@ -214,8 +215,8 @@
 
     <copy
       file="${file.build_info}"
-      todir="${dirs.drop}${path.separator}${folder.deployment}"
-      />
+      todir="${dirs.drop.deployment}"
+      if="${directory::exists(dirs.drop.deployment)}" />
   </target>
 
   <target name="documentation">
