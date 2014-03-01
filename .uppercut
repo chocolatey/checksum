@@ -6,7 +6,7 @@
   <!-- Required Items -->
   <property name="project.name" value="checksum" overwrite="false" />
   <property name="path_to_solution" value="." overwrite="false" />
-  <property name="repository.path" value="private" overwrite="false" />
+  <property name="repository.path" value="https://github.com/ferventcoder/checksum.git" overwrite="false" />
   <property name="company.name" value="RealDimensions Software, LLC" overwrite="false" />
 
   <!-- folders -->
