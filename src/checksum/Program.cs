@@ -85,7 +85,7 @@ namespace checksum
                      "Prints out the options.",
                      option => help = option != null)
                 .Add("f=|file=",
-                     "REQUIRED: file - The is the name of the file. The file should exist",
+                     "REQUIRED: file - The is the name of the file. The file should exist. You do not need to specify -f or -file in front of this argument.",
                      option => configuration.FilePath = option)
                 .Add("t=|type=|hashtype=",
                      "Optional: hashtype - 'md5' or 'sha1' Defaults to 'md5'.",
@@ -134,13 +134,19 @@ namespace checksum
             Console.WriteLine("checksum - File CheckSum Validator - Apache v2");
             Console.WriteLine("checksum checks a file and returns a check sum for both md5 and sha1.");
             Console.WriteLine("To use checksum you would simply provide a file path and it will return the sum for the file.");
-            Console.WriteLine("Example: checksum -f=\"a\\relative\\path\"");
-            Console.WriteLine("Example: checksum -f=\"a\\relative\\path\" -t=sha1");
+            Console.WriteLine("  Example: checksum -f=\"a\\relative\\path\"");
+            Console.WriteLine("  Example: checksum -f=\"a\\relative\\path\"");
+            Console.WriteLine("  Example: checksum \"a\\relative\\path\" -t=sha1");
             Console.WriteLine("You can also check against an existing signature.");
             Console.WriteLine("To validate against an existing signature (hash) you would simply provide");
             Console.WriteLine(" the file and the expected signature. When checking a signature, if the ");
             Console.WriteLine(" signature is valid it exits with 0, otherwise it exits with a non-zero exit code.");
-            Console.WriteLine("Example: checksum -f=\"c:\\\\path\\to\\somefile.exe\" -c=\"thehash\"");
+            Console.WriteLine("  Example: checksum -f=\"c:\\\\path\\to\\somefile.exe\" -c=\"thehash\"");
+            Console.WriteLine("  Example: checksum \"c:\\\\path\\to\\somefile.exe\" -c=\"thehash\" -t=sha1");
+            Console.WriteLine("");
+            Console.WriteLine(" == Synopsis == ");
+            Console.WriteLine("  checksum [-t=sha1|md5] [-c=signature] [-f=]filepath");
+            Console.WriteLine("== Options ==");
             option_set.WriteOptionDescriptions(Console.Error);
 
             pause_execution_if_debug();
