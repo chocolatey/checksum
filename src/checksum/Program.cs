@@ -34,6 +34,7 @@ namespace checksum
                 hash_util = new SHA1CryptoServiceProvider();
             }
 
+            //todo: Wonder if we need to flip this for perf on very large files: http://stackoverflow.com/a/13926809
             var hash = hash_util.ComputeHash(File.Open(configuration.FilePath, FileMode.Open, FileAccess.Read, FileShare.ReadWrite));
 
             string hash_string = BitConverter.ToString(hash).Replace("-",string.Empty);
@@ -96,7 +97,14 @@ namespace checksum
 
             try
             {
-                option_set.Parse(args);
+                var extra_args = option_set.Parse(args);
+                if (extra_args != null && extra_args.Count != 0)
+                {
+                    if (string.IsNullOrWhiteSpace(configuration.FilePath))
+                    {
+                        configuration.FilePath = extra_args[0];
+                    }
+                }
             }
             catch (OptionException)
             {
