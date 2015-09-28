@@ -33,6 +33,14 @@ namespace checksum
             {
                 hash_util = new SHA1CryptoServiceProvider();
             }
+            else if (configuration.HashType.ToLowerSafe() == "sha256")
+            {
+                hash_util = new SHA256CryptoServiceProvider();
+            }
+            else if (configuration.HashType.ToLowerSafe() == "sha512")
+            {
+                hash_util = new SHA512CryptoServiceProvider();
+            }
 
             //todo: Wonder if we need to flip this for perf on very large files: http://stackoverflow.com/a/13926809
             var hash = hash_util.ComputeHash(File.Open(configuration.FilePath, FileMode.Open, FileAccess.Read, FileShare.ReadWrite));
@@ -88,7 +96,7 @@ namespace checksum
                      "REQUIRED: file - The is the name of the file. The file should exist. You do not need to specify -f or -file in front of this argument.",
                      option => configuration.FilePath = option)
                 .Add("t=|type=|hashtype=",
-                     "Optional: hashtype - 'md5' or 'sha1' Defaults to 'md5'.",
+                     "Optional: hashtype - 'md5', 'sha1', 'sha256' or 'sha512' Defaults to 'md5'.",
                      option => configuration.HashType = option)
                  .Add("c=|check=",
                      "check - the signature you want to check. Not case sensitive.",
@@ -145,7 +153,7 @@ namespace checksum
             Console.WriteLine("  Example: checksum \"c:\\\\path\\to\\somefile.exe\" -c=\"thehash\" -t=sha1");
             Console.WriteLine("");
             Console.WriteLine(" == Synopsis == ");
-            Console.WriteLine("  checksum [-t=sha1|md5] [-c=signature] [-f=]filepath");
+            Console.WriteLine("  checksum [-t=sha1|sha256|sha512|md5] [-c=signature] [-f=]filepath");
             Console.WriteLine("== Options ==");
             option_set.WriteOptionDescriptions(Console.Error);
 
