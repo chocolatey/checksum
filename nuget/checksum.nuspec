@@ -9,7 +9,8 @@
     <summary>checksum - CLI File Checksum Validator (md5/sha1/sha256/sha512)</summary>
     <description>checksum - Command line file checksum validator.
 
-checksum checks a file and returns a checksum for md5, sha1, sha256 and sha512.
+checksum checks a file and returns a checksum for md5, sha1, and sha2 (sha256 and sha512).
+
 To use checksum you would simply provide a file path and it will return the sum for the file.
 
     Example: checksum -f="relative\path"
@@ -33,13 +34,13 @@ OPTIONS
     -f, --file=VALUE
       REQUIRED: file - The is the name of the file. The file should exist
     -t, --type, --hashtype=VALUE
-      Optional: hashtype - 'md5', 'sha1', 'sha256' or 'sha512' Defaults to 'md5'.
+      Optional: hashtype - 'md5', 'sha1', 'sha256', or 'sha512'. Defaults to 'md5'.
     -c, --check=VALUE
       Optional: check - the signature you want to check. Not case sensitive.
 
     </description>
     <projectUrl>https://github.com/ferventcoder/checksum</projectUrl>
-    <tags>checksum md5 sha1 sha256 sha512 hash</tags>
+    <tags>checksum md5 sha1 sha2 sha256 sha512 hash</tags>
     <copyright>2014-Present RealDimensions Software, LLC</copyright>
     <licenseUrl>https://raw.github.com/ferventcoder/checksum/master/LICENSE</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
