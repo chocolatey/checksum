@@ -6,40 +6,40 @@
     <version>DO_NOT_EDIT</version>
     <authors>Rob Reynolds</authors>
     <owners>Rob Reynolds</owners>
-    <summary>checksum - CLI File Checksum Validator (md5/sha1)</summary>
+    <summary>checksum - CLI File Checksum Validator (md5/sha1/sha256/sha512)</summary>
     <description>checksum - Command line file checksum validator.
-    
-checksum checks a file and returns a checksum for both md5 and sha1.
+
+checksum checks a file and returns a checksum for md5, sha1, sha256 and sha512.
 To use checksum you would simply provide a file path and it will return the sum for the file.
 
     Example: checksum -f="relative\path"
     Example: checksum "relative\path"
-    Example: checksum -f="c:\absolute\path" -t=sha1
+    Example: checksum -f="c:\absolute\path" -t=sha256
 
 You can also check against an existing signature.
 To validate against an existing signature (hash) you would simply provide the file and the expected signature. When checking a signature, if the signature is valid it exits with 0, otherwise it exits with a non-zero exit code.
 
     Example: checksum "c:\\path\to\somefile.exe" -c="thehash"
-    Example: checksum -f="c:\\path\to\somefile.exe" -c="thehash" -t=sha1
+    Example: checksum -f="c:\\path\to\somefile.exe" -c="thehash" -t=sha256
 
 SYNOPSIS
 
-    checksum [-t=sha1|md5] [-c=signature] [-f=]filepath
+    checksum [-t=sha1|sha256|sha512|md5] [-c=signature] [-f=]filepath
 
 OPTIONS
 
-    -?, --help, -h     
+    -?, --help, -h
       Prints out the options.
     -f, --file=VALUE
       REQUIRED: file - The is the name of the file. The file should exist
     -t, --type, --hashtype=VALUE
-      Optional: hashtype - 'md5' or 'sha1' Defaults to 'md5'.
+      Optional: hashtype - 'md5', 'sha1', 'sha256' or 'sha512' Defaults to 'md5'.
     -c, --check=VALUE
       Optional: check - the signature you want to check. Not case sensitive.
 
     </description>
     <projectUrl>https://github.com/ferventcoder/checksum</projectUrl>
-    <tags>checksum md5 sha1 hash</tags>
+    <tags>checksum md5 sha1 sha256 sha512 hash</tags>
     <copyright>2014-Present RealDimensions Software, LLC</copyright>
     <licenseUrl>https://raw.github.com/ferventcoder/checksum/master/LICENSE</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>

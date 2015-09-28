@@ -19,7 +19,7 @@ namespace checksum
             Console.WriteLine("HashType='{0}'", configuration.HashType);
             Console.WriteLine("HashToCheck={0}", configuration.HashToCheck);
 #endif
-            
+
             configuration.FilePath = Path.GetFullPath(configuration.FilePath);
             if (!File.Exists(configuration.FilePath))
             {
@@ -140,17 +140,17 @@ namespace checksum
         private static void show_help(OptionSet option_set)
         {
             Console.WriteLine("checksum - File CheckSum Validator - Apache v2");
-            Console.WriteLine("checksum checks a file and returns a check sum for both md5 and sha1.");
+            Console.WriteLine("checksum checks a file and returns a check sum for md5, sha1, sha256 and sha512.");
             Console.WriteLine("To use checksum you would simply provide a file path and it will return the sum for the file.");
             Console.WriteLine("  Example: checksum -f=\"a\\relative\\path\"");
             Console.WriteLine("  Example: checksum -f=\"a\\relative\\path\"");
-            Console.WriteLine("  Example: checksum \"a\\relative\\path\" -t=sha1");
+            Console.WriteLine("  Example: checksum \"a\\relative\\path\" -t=sha256");
             Console.WriteLine("You can also check against an existing signature.");
             Console.WriteLine("To validate against an existing signature (hash) you would simply provide");
             Console.WriteLine(" the file and the expected signature. When checking a signature, if the ");
             Console.WriteLine(" signature is valid it exits with 0, otherwise it exits with a non-zero exit code.");
             Console.WriteLine("  Example: checksum -f=\"c:\\\\path\\to\\somefile.exe\" -c=\"thehash\"");
-            Console.WriteLine("  Example: checksum \"c:\\\\path\\to\\somefile.exe\" -c=\"thehash\" -t=sha1");
+            Console.WriteLine("  Example: checksum \"c:\\\\path\\to\\somefile.exe\" -c=\"thehash\" -t=sha256");
             Console.WriteLine("");
             Console.WriteLine(" == Synopsis == ");
             Console.WriteLine("  checksum [-t=sha1|sha256|sha512|md5] [-c=signature] [-f=]filepath");
