@@ -9,6 +9,19 @@ namespace checksum
 {
     internal class Program
     {
+        private enum HashLengthType
+        {
+            Md5 = 32,
+            Sha1 = 40,
+            Sha256 = 64,
+            Sha512 = 128, 
+        }
+
+        private const string MD5 = "md5";
+        private const string SHA1 = "sha1";
+        private const string SHA256 = "sha256";
+        private const string SHA512 = "sha512";
+
         private static void Main(string[] args)
         {
             var configuration = new ConfigurationSettings();
@@ -27,17 +40,37 @@ namespace checksum
                 Environment.Exit(1);
             }
 
+            if (!string.IsNullOrWhiteSpace(configuration.HashToCheck))
+            {
+                var hashLength = configuration.HashToCheck.Length;
+                switch (hashLength)
+                {
+                    case (int)HashLengthType.Md5:
+                        configuration.HashType = MD5;
+                        break;
+                    case (int)HashLengthType.Sha1:
+                        configuration.HashType = SHA1;
+                        break;
+                    case (int)HashLengthType.Sha256:
+                        configuration.HashType = SHA256;
+                        break;
+                    case (int)HashLengthType.Sha512:
+                        configuration.HashType = SHA512;
+                        break;
+                }
+            }
+
             HashAlgorithm hash_util = new MD5CryptoServiceProvider();
 
-            if (configuration.HashType.ToLowerSafe() == "sha1")
+            if (configuration.HashType.ToLowerSafe() == SHA1)
             {
                 hash_util = new SHA1CryptoServiceProvider();
             }
-            else if (configuration.HashType.ToLowerSafe() == "sha256")
+            else if (configuration.HashType.ToLowerSafe() == SHA256)
             {
                 hash_util = new SHA256CryptoServiceProvider();
             }
-            else if (configuration.HashType.ToLowerSafe() == "sha512")
+            else if (configuration.HashType.ToLowerSafe() == SHA512)
             {
                 hash_util = new SHA512CryptoServiceProvider();
             }
@@ -96,7 +129,7 @@ namespace checksum
                      "REQUIRED: file - The is the name of the file. The file should exist. You do not need to specify -f or -file in front of this argument.",
                      option => configuration.FilePath = option)
                 .Add("t=|type=|hashtype=",
-                     "Optional: hashtype - 'md5', 'sha1', 'sha256' or 'sha512' Defaults to 'md5'.",
+                     "Optional: hashtype - 'md5', 'sha1', 'sha256' or 'sha512' Defaults to 'md5' or whatever is determined by the length of the check.",
                      option => configuration.HashType = option)
                  .Add("c=|check=",
                      "check - the signature you want to check. Not case sensitive.",
