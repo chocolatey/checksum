@@ -39,8 +39,8 @@ namespace checksum
                 Console.WriteLine("File '{0}' doesn't exist.", configuration.FilePath);
                 Environment.Exit(1);
             }
-
-            if (!string.IsNullOrWhiteSpace(configuration.HashToCheck))
+            
+            if (!string.IsNullOrWhiteSpace(configuration.HashToCheck) && string.IsNullOrWhiteSpace(configuration.HashType))
             {
                 var hashLength = configuration.HashToCheck.Length;
                 switch (hashLength)
