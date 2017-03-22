@@ -9,19 +9,24 @@
     <summary>checksum - CLI File Checksum Validator (md5/sha1/sha256/sha512)</summary>
     <description>checksum - Command line file checksum validator.
 
+### Determine a checksum for a file
 checksum checks a file and returns a checksum for md5, sha1, and sha2 (sha256 and sha512).
 
 To use checksum you would simply provide a file path and it will return the sum for the file.
 
-    Example: checksum -f="relative\path"
-    Example: checksum "relative\path"
-    Example: checksum -f="c:\absolute\path" -t=sha256
+#### Examples
+ * `checksum -f="relative\path"`
+ * `checksum "relative\path"`
+ * `checksum -f="c:\absolute\path" -t=sha256`
 
+### Validate a file against an existing signature
 You can also check against an existing signature.
 To validate against an existing signature (hash) you would simply provide the file and the expected signature. When checking a signature, if the signature is valid it exits with 0, otherwise it exits with a non-zero exit code.
 
-    Example: checksum "c:\\path\to\somefile.exe" -c="thehash"
-    Example: checksum -f="c:\\path\to\somefile.exe" -c="thehash" -t=sha256
+#### Examples
+ * `checksum -f="c:\absolute\path" -c=8AC4EA9A7B18E67EA97088220C40041B355A2C3049AA4E290D1F65A94BEFA9EF`
+ * `checksum -f="c:\absolute\path" -c=8AC4EA9A7B18E67EA97088220C40041B355A2C3049AA4E290D1F65A94BEFA9EF -t sha256`
+
 
 SYNOPSIS
 
@@ -34,7 +39,7 @@ OPTIONS
     -f, --file=VALUE
       REQUIRED: file - The is the name of the file. The file should exist
     -t, --type, --hashtype=VALUE
-      Optional: hashtype - 'md5', 'sha1', 'sha256', or 'sha512'. Defaults to 'md5'.
+      Optional: hashtype - 'md5', 'sha1', 'sha256', or 'sha512'. Defaults to 'md5' or is determined by length of passed check value.
     -c, --check=VALUE
       Optional: check - the signature you want to check. Not case sensitive.
 

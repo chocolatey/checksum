@@ -129,10 +129,10 @@ namespace checksum
                      "REQUIRED: file - The is the name of the file. The file should exist. You do not need to specify -f or -file in front of this argument.",
                      option => configuration.FilePath = option)
                 .Add("t=|type=|hashtype=",
-                     "Optional: hashtype - 'md5', 'sha1', 'sha256' or 'sha512' Defaults to whatever is determined by the length of the check.",
+                     "Optional: hashtype - 'md5', 'sha1', 'sha256' or 'sha512'. Defaults to 'md5' or is determined by length of passed check value.",
                      option => configuration.HashType = option)
                  .Add("c=|check=",
-                     "check - the signature you want to check. Not case sensitive.",
+                     "Optional: check - the signature you want to check. Not case sensitive.",
                      option => configuration.HashToCheck = option)
                 ;
 
