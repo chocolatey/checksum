@@ -155,7 +155,7 @@ namespace checksum
             if (string.IsNullOrWhiteSpace(configuration.FilePath)) show_help(option_set);
 
 
-            configuration.FilePath = configuration.FilePath.Replace("'", string.Empty).Replace("\"", string.Empty).Trim();
+            configuration.FilePath = configuration.FilePath.Trim('\'').Replace("\"", string.Empty).Trim();
             if (!string.IsNullOrWhiteSpace(configuration.HashType))
             {
                 configuration.HashType = configuration.HashType.Trim();
