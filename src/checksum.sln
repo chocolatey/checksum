@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "checksum", "src\checksum\checksum.csproj", "{D1BF7C1F-E3F9-45D0-B3C5-7F4D3EF720FE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "checksum", "checksum\checksum.csproj", "{D1BF7C1F-E3F9-45D0-B3C5-7F4D3EF720FE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
