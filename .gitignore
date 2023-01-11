@@ -6,7 +6,7 @@ obj
 _ReSharper*
 /packages
 App_Data
-
+.vs
 
 *.suo
 *.user 
@@ -33,3 +33,10 @@ Thumbs.db
 # Project Specific
 !gems/bin
 
+# Build related
+tools/**
+!tools/packages.config
+!tools/Addins/packages.config
+!tools/Modules/packages.config
+BuildArtifacts/
+code_drop/
