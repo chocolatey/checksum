@@ -1,20 +1,28 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33205.214
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "checksum", "checksum\checksum.csproj", "{D1BF7C1F-E3F9-45D0-B3C5-7F4D3EF720FE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
+		ReleaseOfficial|Any CPU = ReleaseOfficial|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{D1BF7C1F-E3F9-45D0-B3C5-7F4D3EF720FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{D1BF7C1F-E3F9-45D0-B3C5-7F4D3EF720FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D1BF7C1F-E3F9-45D0-B3C5-7F4D3EF720FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D1BF7C1F-E3F9-45D0-B3C5-7F4D3EF720FE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D1BF7C1F-E3F9-45D0-B3C5-7F4D3EF720FE}.ReleaseOfficial|Any CPU.ActiveCfg = ReleaseOfficial|Any CPU
+		{D1BF7C1F-E3F9-45D0-B3C5-7F4D3EF720FE}.ReleaseOfficial|Any CPU.Build.0 = ReleaseOfficial|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {08909597-B21E-4C71-9F6E-32F475B3350E}
 	EndGlobalSection
 EndGlobal
