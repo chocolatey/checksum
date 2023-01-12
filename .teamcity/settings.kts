@@ -65,7 +65,7 @@ object Checksum : BuildType({
 
     features {
         pullRequests {
-            provider = githab {
+            provider = github {
                 authType = token {
                     token = "%system.GitHubPAT%"
                 }
