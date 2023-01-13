@@ -32,7 +32,8 @@ Task("Prepare-Chocolatey-Packages")
     CleanDirectory(BuildParameters.Paths.Directories.ChocolateyNuspecDirectory + "/tools/app");
 
     // Copy legal documents
-    CopyFile(BuildParameters.RootDirectoryPath + "/LICENSE", BuildParameters.Paths.Directories.ChocolateyNuspecDirectory + "/tools/app/LICENSE.txt");
+    CopyFile(BuildParameters.RootDirectoryPath + "/LICENSE", BuildParameters.Paths.Directories.ChocolateyNuspecDirectory + "/legal/LICENSE.txt");
+    
 
     // Copy main file
     CopyFile(BuildParameters.Paths.Directories.PublishedApplications + "/checksum/checksum.exe", BuildParameters.Paths.Directories.ChocolateyNuspecDirectory + "/tools/app/checksum.exe");
