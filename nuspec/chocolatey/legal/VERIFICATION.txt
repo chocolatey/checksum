@@ -1,0 +1,12 @@
+VERIFICATION
+Verification is intended to assist the Chocolatey moderators and community
+in verifying that this package's contents are trustworthy.
+
+Checksum comes from Chocolatey Software, Inc.
+
+To verify the binaries:
+
+- To go the GitHub Releases page: https://github.com/chocolatey/checksum/releases.
+- Find the release that you are interested in.
+- There you should find the exe that is contained within the Chocolatey package
+  for that version, and also the SHA of the file
