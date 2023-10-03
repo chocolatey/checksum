@@ -1,4 +1,4 @@
-#load nuget:?package=Chocolatey.Cake.Recipe&version=0.20.1
+#load nuget:?package=Chocolatey.Cake.Recipe&version=0.25.0
 
 ///////////////////////////////////////////////////////////////////////////////
 // SCRIPT
@@ -33,7 +33,7 @@ Task("Prepare-Chocolatey-Packages")
 
     // Copy legal documents
     CopyFile(BuildParameters.RootDirectoryPath + "/LICENSE", BuildParameters.Paths.Directories.ChocolateyNuspecDirectory + "/legal/LICENSE.txt");
-    
+
 
     // Copy main file
     CopyFile(BuildParameters.Paths.Directories.PublishedApplications + "/checksum/checksum.exe", BuildParameters.Paths.Directories.ChocolateyNuspecDirectory + "/tools/app/checksum.exe");
